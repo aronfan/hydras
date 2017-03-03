@@ -1,0 +1,114 @@
+au BufWrite /private/tmp/crontab.* set nowritebackup nobackup
+au BufWrite /private/etc/pw.* set nowritebackup nobackup
+
+set modelines=0
+set nocompatible
+set backspace=2
+set number
+set tabstop=4
+set autoindent
+set softtabstop=4
+set shiftwidth=4
+set ruler
+set laststatus=2
+set showcmd
+set nobackup
+set nowritebackup
+
+syntax enable
+colorscheme monokai
+
+if has("multi_byte")
+	if &termencoding == ""
+		let &termencoding = &encoding
+	endif
+	set encoding=utf-8
+	setglobal fileencoding=utf-8
+	set fileencodings=ucs-bom,utf-8,latin1
+endif
+
+if has("cscope")
+	set csprg=/usr/bin/cscope
+	set csto=1
+	set cst
+	set nocsverb
+	if filereadable("cscope.out")
+		cs add cscope.out
+	endif
+	set csverb
+endif
+
+execute pathogen#infect()
+execute pathogen#helptags()
+
+let NERDTreeShowBookmarks=1
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+let g:ctrlp_map = '<C-p>'
+let g:ctrlp_cmd = 'CtrlP'
+
+set guifont=PowerlineSymbols\ for\ Powerline
+set t_Co=256
+let g:Powerline_symbols='fancy'
+
+let Tlist_Show_One_File=1
+let Tlist_Exit_OnlyWindow=1
+let Tlist_Ctags_Cmd="/usr/bin/ctags"
+let Tlist_Use_Right_Window=1
+let Tlist_Sort_Type="name"
+let Tlist_Use_SingleClick=1
+let Tlist_WinWidth=40
+
+function AddTitle()
+    call append(0,"/*==============================================")
+    call append(1,"#")
+    call append(2,"# Filename: ".expand("%:t"))
+    call append(3,"# Author: aronfan")
+    call append(4,"# Editor: Vim")
+    call append(5,"# Create: ".strftime("%Y-%m-%d %H:%M"))
+    call append(6,"# Last modified: ".strftime("%Y-%m-%d %H:%M"))
+    call append(7,"# Description: ")
+    call append(8,"#")
+    call append(9,"==============================================*/")
+    echohl WarningMsg | echo "Successful in adding the copyright." | echohl None
+endfunction
+
+function UpdateTitle()
+    normal m'
+    execute '/# *Last modified:/s@:.*$@\=strftime(": %Y-%m-%d %H:%M")@'
+    normal ''
+    normal mk
+    execute '/# *Filename:/s@:.*$@\=": ".expand("%:t")@'
+    execute "noh"
+    normal 'k
+    echohl WarningMsg | echo "Successful in updating the copyright." | echohl None
+endfunction
+
+function TitleDet()
+    let n = 1
+    while n < 10
+        let line = getline(n)
+	    if line =~ '^\#\s*\S*Last\smodified:\S*.*$'
+            call UpdateTitle()
+            return
+		endif
+		let n = n + 1
+    endwhile
+    call AddTitle()
+endfunction
+
+inoremap jj <ESC>
+inoremap <C-h> <HOME>
+inoremap <C-l> <END>
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+nmap <F1> :qa<CR>
+nmap <F2> :w<CR>
+nmap <F3> :cn<CR>
+nmap <F4> :cp<CR>
+nmap <F7> :BufExplorer<CR>
+nmap <F8> :call TitleDet()<CR>
+nmap <C-k>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+map <C-m> :NERDTreeToggle<CR>
+vmap <tab> >gv
+vmap <s-tab> <gv
+
