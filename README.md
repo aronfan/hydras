@@ -1,7 +1,7 @@
 # hydras
 hydras
 
-## lua op
+## lua part
 
-## erlang op
+## erlang part
 

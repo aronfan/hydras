@@ -1,0 +1,7 @@
+
+push without password:
+1. git remote rm origin
+2. git remote add origin git@github.com:aronfan/hydras.git
+3. git push origin master
+
+
