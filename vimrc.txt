@@ -43,8 +43,8 @@ execute pathogen#helptags()
 
 let NERDTreeShowBookmarks=1
 set runtimepath^=~/.vim/bundle/ctrlp.vim
-let g:ctrlp_map = '<C-p>'
-let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_map='<C-p>'
+let g:ctrlp_cmd='CtrlP'
 
 set guifont=PowerlineSymbols\ for\ Powerline
 set t_Co=256
@@ -59,66 +59,66 @@ let Tlist_Use_SingleClick=1
 let Tlist_WinWidth=40
 
 function AddTitle()
-    call append(0,"/*==============================================")
-    call append(1,"#")
-    call append(2,"# Filename: ".expand("%:t"))
-    call append(3,"# Author: aronfan")
-    call append(4,"# Editor: Vim")
-    call append(5,"# Create: ".strftime("%Y-%m-%d %H:%M"))
-    call append(6,"# Last modified: ".strftime("%Y-%m-%d %H:%M"))
-    call append(7,"# Description: ")
-    call append(8,"#")
-    call append(9,"==============================================*/")
-    echohl WarningMsg | echo "Successful in adding the copyright." | echohl None
+	call append(0,"/*==============================================")
+	call append(1,"#")
+	call append(2,"# Filename: ".expand("%:t"))
+	call append(3,"# Author: aronfan")
+	call append(4,"# Editor: Vim")
+	call append(5,"# Create: ".strftime("%Y-%m-%d %H:%M"))
+	call append(6,"# Last modified: ".strftime("%Y-%m-%d %H:%M"))
+	call append(7,"# Description: ")
+	call append(8,"#")
+	call append(9,"==============================================*/")
+echohl WarningMsg | echo "Successful in adding the copyright." | echohl None
 endfunction
 
 function UpdateTitle()
-    normal m'
-    execute '/# *Last modified:/s@:.*$@\=strftime(": %Y-%m-%d %H:%M")@'
-    normal ''
-    normal mk
-    execute '/# *Filename:/s@:.*$@\=": ".expand("%:t")@'
-    execute "noh"
-    normal 'k
-    echohl WarningMsg | echo "Successful in updating the copyright." | echohl None
+	normal m'
+	execute '/# *Last modified:/s@:.*$@\=strftime(": %Y-%m-%d %H:%M")@'
+	normal ''
+	normal mk
+	execute '/# *Filename:/s@:.*$@\=": ".expand("%:t")@'
+	execute "noh"
+	normal 'k
+	echohl WarningMsg | echo "Successful in updating the copyright." | echohl None
 endfunction
 
 function TitleDet()
-    let n = 1
-    while n < 10
-        let line = getline(n)
-	    if line =~ '^\#\s*\S*Last\smodified:\S*.*$'
-            call UpdateTitle()
-            return
+	let n = 1
+	while n < 10
+		let line = getline(n)
+		if line =~ '^\#\s*\S*Last\smodified:\S*.*$'
+			call UpdateTitle()
+			return
 		endif
 		let n = n + 1
-    endwhile
-    call AddTitle()
+	endwhile
+	call AddTitle()
 endfunction
 
-inoremap jj <ESC>
-inoremap <C-h> <HOME>
-inoremap <C-l> <END>
-inoremap <C-j> <DOWN>
-inoremap <C-k> <UP>
+inoremap jj		<ESC>
+inoremap <C-h>	<HOME>
+inoremap <C-l>	<END>
+inoremap <C-j>	<DOWN>
+inoremap <C-k>	<UP>
 
-nmap <F1> :qa<CR>
-nmap <F2> :w<CR>
-nmap <F3> :cn<CR>
-nmap <F4> :cp<CR>
-nmap <F7> :BufExplorer<CR>
-nmap <F8> :call TitleDet()<CR>
-nmap <C-k>s :cs find s <C-R>=expand("<cword>")<CR><CR>
-nmap <C-k>g :cs find g <C-R>=expand("<cword>")<CR><CR>
-nmap <C-k>c :cs find c <C-R>=expand("<cword>")<CR><CR>
-nmap <C-k>t :cs find t <C-R>=expand("<cword>")<CR><CR>
-nmap <C-k>e :cs find e <C-R>=expand("<cword>")<CR><CR>
-nmap <C-k>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
-nmap <C-k>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-nmap <C-k>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+nmap <F1>		:qa<CR>
+nmap <F2>		:w<CR>
+nmap <F3>		:cn<CR>
+nmap <F4>		:cp<CR>
+nmap <F7>		:BufExplorer<CR>
+nmap <F8>		:call TitleDet()<CR>
+nmap <C-k>s		:cs find s <C-R>=expand("<cword>")<CR><CR>
+nmap <C-k>g		:cs find g <C-R>=expand("<cword>")<CR><CR>
+nmap <C-k>c		:cs find c <C-R>=expand("<cword>")<CR><CR>
+nmap <C-k>t		:cs find t <C-R>=expand("<cword>")<CR><CR>
+nmap <C-k>e		:cs find e <C-R>=expand("<cword>")<CR><CR>
+nmap <C-k>f		:cs find f <C-R>=expand("<cfile>")<CR><CR>
+nmap <C-k>i		:cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+nmap <C-k>d		:cs find d <C-R>=expand("<cword>")<CR><CR>
 
-map <C-m> :NERDTreeToggle<CR>
+map <C-m>		:NERDTreeToggle<CR>
 
-vmap <tab> >gv
-vmap <s-tab> <gv
+vmap <tab>		>gv
+vmap <s-tab>	<gv
 

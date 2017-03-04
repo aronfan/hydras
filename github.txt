@@ -4,4 +4,7 @@ push without password:
 2. git remote add origin git@github.com:aronfan/hydras.git
 3. git push origin master
 
+pull = fetch + merge
+git pull origin master:master
+
 
