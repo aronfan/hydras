@@ -99,8 +99,9 @@ endfunction
 inoremap jj <ESC>
 inoremap <C-h> <HOME>
 inoremap <C-l> <END>
-inoremap <C-j> <Down>
-inoremap <C-k> <Up>
+inoremap <C-j> <DOWN>
+inoremap <C-k> <UP>
+
 nmap <F1> :qa<CR>
 nmap <F2> :w<CR>
 nmap <F3> :cn<CR>
@@ -108,7 +109,16 @@ nmap <F4> :cp<CR>
 nmap <F7> :BufExplorer<CR>
 nmap <F8> :call TitleDet()<CR>
 nmap <C-k>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+nmap <C-k>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+nmap <C-k>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+nmap <C-k>t :cs find t <C-R>=expand("<cword>")<CR><CR>
+nmap <C-k>e :cs find e <C-R>=expand("<cword>")<CR><CR>
+nmap <C-k>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
+nmap <C-k>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+nmap <C-k>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+
 map <C-m> :NERDTreeToggle<CR>
+
 vmap <tab> >gv
 vmap <s-tab> <gv
 
