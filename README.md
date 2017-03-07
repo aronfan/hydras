@@ -1,7 +1,6 @@
 # hydras
-hydras
+some config and code
 
-## lua part
-
-## erlang part
+## zktest
+a zookeeper test client
 
