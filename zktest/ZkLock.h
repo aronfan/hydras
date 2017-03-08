@@ -9,7 +9,7 @@ struct zkr_lock_mutex;
 
 enum ZkLockState
 {
-	ZkLockState_None		= 0,
+	ZkLockState_Expired		= 0,
 	ZkLockState_Connecting	= 1,
 	ZkLockState_Connected	= 2,
 };
@@ -21,7 +21,12 @@ public:
 	~ZkLock();
 
 	int connect(const std::string & sCluster);
+
+	void setExpired()	{m_iState = ZkLockState_Expired;}
 	void setConnected() {m_iState = ZkLockState_Connected;}
+	void setConnecting(){m_iState = ZkLockState_Connecting;}
+
+	bool isExpired()	{return (m_iState == ZkLockState_Expired);}
 	bool isConnected()  {return (m_iState == ZkLockState_Connected);}
 	bool isConnecting() {return (m_iState == ZkLockState_Connecting);}
 

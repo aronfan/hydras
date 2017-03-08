@@ -1,6 +1,11 @@
 
 #include "ZkLock.h"
 #include <unistd.h>
+#include <iostream>
+
+using namespace std;
+
+string s_sCluster = "192.168.60.103:2180,192.168.60.103:2181,192.168.60.103:2182";
 
 int main(int argc, char * argv[])
 {
@@ -9,25 +14,46 @@ int main(int argc, char * argv[])
 
 	ZkLock L("/bb/match.1");
 
-	L.connect("192.168.60.103:2180");
-	while (L.isConnecting())
-	{
-		sleep(1);
-	}
-
-	L.init();
-
-	L.lock();
+	bool bPrimary = false;
+	bool bConnected = false;
 	while (true)
 	{
-		if (L.isOwner())
+		if (L.isExpired())
 		{
-			sleep(3);
+			bPrimary = false;
+			bConnected = false;
+			L.connect(s_sCluster);
+			continue;
 		}
-		else
+
+		if (L.isConnecting())
 		{
+			bPrimary = false;
+			bConnected = false;
 			sleep(1);
-			L.lock();
+			continue;
+		}
+
+		if (L.isConnected())
+		{
+			if (!bConnected)
+			{
+				L.init();
+				bConnected = true;
+				cout << "i am slave when connect zk" << endl;
+			}
+
+			if (!bPrimary)
+			{
+				L.lock();
+				if (L.isOwner())
+				{
+					cout << "i am primary, ver=" << L.getVer() << endl;
+					bPrimary = true;
+				}
+			}
+
+			sleep(1);
 		}
 	}
 

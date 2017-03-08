@@ -1,6 +1,7 @@
 
 #include "ZkLock.h"
 #include "zoo_lock.h"
+#include <iostream>
 
 using namespace std;
 
@@ -13,11 +14,17 @@ void watcher(zhandle_t * zh, int type, int state, const char * path, void * watc
 	(void)zh;
 	(void)path;
 
+	cout << "type=" << type << " state=" << state << " path=" << path << endl;
+
 	if (type == ZOO_SESSION_EVENT)
 	{
 		if (state == ZOO_CONNECTED_STATE)
 		{
 			pThis->setConnected();
+		}
+		else if (state == ZOO_EXPIRED_SESSION_STATE)
+		{
+			pThis->setExpired();
 		}
 	}
 }
@@ -27,8 +34,7 @@ ZkLock::ZkLock(string sPath) : m_pZh(NULL), m_sPath(sPath), m_pMux(NULL)
 {
 	zoo_set_debug_level(ZOO_LOG_LEVEL_WARN);
 
-	m_iState = ZkLockState_None;
-	m_pMux = new zkr_lock_mutex_t;
+	m_iState = ZkLockState_Expired;
 }
 
 ZkLock::~ZkLock()
@@ -55,6 +61,12 @@ bool ZkLock::isOwner()
 
 int ZkLock::connect(const string & sCluster)
 {
+	if (m_pZh != NULL)
+	{
+		zookeeper_close((zhandle_t *)m_pZh);
+		m_pZh = NULL;
+	}
+
 	zhandle_t * zh = zookeeper_init(sCluster.c_str(), ::watcher, 5 * 1000, NULL, this, 0);
 
 	m_iState = ZkLockState_Connecting;
@@ -65,6 +77,14 @@ int ZkLock::connect(const string & sCluster)
 
 int ZkLock::init()
 {
+	if (m_pMux != NULL)
+	{
+		zkr_lock_destroy(m_pMux);
+		delete m_pMux;
+		m_pMux = NULL;
+	}
+
+	m_pMux = new zkr_lock_mutex();
 	int iRet = zkr_lock_init(m_pMux, (zhandle_t *)m_pZh, (char *)m_sPath.c_str(), &ZOO_OPEN_ACL_UNSAFE);
 	return iRet;
 }
