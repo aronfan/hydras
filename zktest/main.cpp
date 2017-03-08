@@ -5,14 +5,19 @@
 
 using namespace std;
 
-string s_sCluster = "192.168.60.103:2180,192.168.60.103:2181,192.168.60.103:2182";
-
 int main(int argc, char * argv[])
 {
-	(void)argc;
-	(void)argv;
+	if (argc != 3)
+	{
+		cout << "usage: ./test_zk /bb/match.1 192.168.60.103:2180,192.168.60.103:2181,192.168.60.103:2182" << endl;
+		return 0;
+	}
 
-	ZkLock L("/bb/match.1");
+	cout << "lock name: " << argv[1] << endl;
+	cout << "lock cluster: " << argv[2] << endl;
+
+	string sCluster = argv[2];
+	ZkLock L(argv[1]);
 
 	bool bPrimary = false;
 	bool bConnected = false;
@@ -22,7 +27,7 @@ int main(int argc, char * argv[])
 		{
 			bPrimary = false;
 			bConnected = false;
-			L.connect(s_sCluster);
+			L.connect(sCluster);
 			continue;
 		}
 
