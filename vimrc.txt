@@ -97,10 +97,6 @@ function TitleDet()
 endfunction
 
 inoremap jj		<ESC>
-inoremap <C-h>	<HOME>
-inoremap <C-l>	<END>
-inoremap <C-j>	<DOWN>
-inoremap <C-k>	<UP>
 
 nmap <F1>		:qa<CR>
 nmap <F2>		:w<CR>

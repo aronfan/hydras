@@ -1,0 +1,10 @@
+
+3.11
+1) c$  c^   d$   d^
+2) J means combine two line
+3) 3x means delete three character, 3A. means add three '.' at the line end
+4) press ZZ to exit help
+5) B, E, W will move faster than b, e, w
+6) % to match the ( , {, [
+7) /\<the\> just search word 'test', not 'there' or smoothe'
+
