@@ -29,7 +29,6 @@ void watcher(zhandle_t * zh, int type, int state, const char * path, void * watc
 	}
 }
 
-
 ZkLock::ZkLock(string sPath) : m_pZh(NULL), m_sPath(sPath), m_pMux(NULL)
 {
 	zoo_set_debug_level(ZOO_LOG_LEVEL_WARN);
@@ -56,7 +55,7 @@ ZkLock::~ZkLock()
 
 bool ZkLock::isOwner()
 {
-	return zkr_lock_isowner(m_pMux);
+	return (bool)zkr_lock_isowner(m_pMux);
 }
 
 int ZkLock::connect(const string & sCluster)
