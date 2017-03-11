@@ -7,4 +7,11 @@
 5) B, E, W will move faster than b, e, w
 6) % to match the ( , {, [
 7) /\<the\> just search word 'test', not 'there' or smoothe'
+8) C-v, 3j means select 3 rows
+9) yy means copy current line
+10) daw means delete a word with a space, diw means delete a word without a space
+11) ~ change character case, I means enter insert mode at begin of the line
+12) :%s/\s\+$//  means remove the spaces at the end of some lines
+13) C-z to suspend the vim, and 'gf' to come back
+14) C-u to delete the last change
 
