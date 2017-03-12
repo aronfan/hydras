@@ -96,25 +96,53 @@ function TitleDet()
 	call AddTitle()
 endfunction
 
-inoremap jj		<ESC>
+" Quit insert mode
+inoremap jj			<ESC>
 
-nmap <F1>		:qa<CR>
-nmap <F2>		:w<CR>
-nmap <F3>		:cn<CR>
-nmap <F4>		:cp<CR>
-nmap <F7>		:BufExplorer<CR>
-nmap <F8>		:call TitleDet()<CR>
-nmap <C-k>s		:cs find s <C-R>=expand("<cword>")<CR><CR>
-nmap <C-k>g		:cs find g <C-R>=expand("<cword>")<CR><CR>
-nmap <C-k>c		:cs find c <C-R>=expand("<cword>")<CR><CR>
-nmap <C-k>t		:cs find t <C-R>=expand("<cword>")<CR><CR>
-nmap <C-k>e		:cs find e <C-R>=expand("<cword>")<CR><CR>
-nmap <C-k>f		:cs find f <C-R>=expand("<cfile>")<CR><CR>
-nmap <C-k>i		:cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-nmap <C-k>d		:cs find d <C-R>=expand("<cword>")<CR><CR>
+" Quit normal mode
+nnoremap <Space>q	:qa<CR>
 
-map <C-m>		:NERDTreeToggle<CR>
+" Movement
+nnoremap H			^
+nnoremap L			$
 
-vmap <tab>		>gv
-vmap <s-tab>	<gv
+" Save file
+nnoremap <Space>sf	:w<CR>
+nnoremap <Space>sa	:wa<CR>
 
+" Search
+nnoremap <Space>sc	:nohlsearch<CR>
+
+" Window
+nnoremap <Space>ww	<C-W>w
+nnoremap <Space>wd	<C-W>c
+nnoremap <Space>wh	<C-W>h
+nnoremap <Space>wj	<C-W>j
+nnoremap <Space>wk	<C-W>k
+nnoremap <Space>wl	<C-W>l
+nnoremap <Space>we	<C-W>=
+nnoremap <Space>ws	<C-W>s
+nnoremap <Space>wv	<C-W>v
+
+" Buffer
+nnoremap <Space>bf	:BufExplorer<CR>
+
+" Shifting
+vmap <tab>			>gv
+vmap <s-tab>		<gv
+
+" Nerdtree
+map <C-M>			:NERDTreeToggle<CR>
+
+" CScope
+nmap <C-k>s			:cs find s <C-R>=expand("<cword>")<CR><CR>
+nmap <C-k>g			:cs find g <C-R>=expand("<cword>")<CR><CR>
+nmap <C-k>c			:cs find c <C-R>=expand("<cword>")<CR><CR>
+nmap <C-k>t			:cs find t <C-R>=expand("<cword>")<CR><CR>
+nmap <C-k>e			:cs find e <C-R>=expand("<cword>")<CR><CR>
+nmap <C-k>f			:cs find f <C-R>=expand("<cfile>")<CR><CR>
+nmap <C-k>i			:cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+nmap <C-k>d			:cs find d <C-R>=expand("<cword>")<CR><CR>
+
+
+nmap <F8>			:call TitleDet()<CR>
