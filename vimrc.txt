@@ -1,3 +1,5 @@
+
+" Base
 au BufWrite /private/tmp/crontab.* set nowritebackup nobackup
 au BufWrite /private/etc/pw.* set nowritebackup nobackup
 
@@ -16,8 +18,11 @@ set nobackup
 set nowritebackup
 
 syntax enable
+
+" Scheme
 colorscheme monokai
 
+" File encoding
 if has("multi_byte")
 	if &termencoding == ""
 		let &termencoding = &encoding
@@ -26,6 +31,63 @@ if has("multi_byte")
 	setglobal fileencoding=utf-8
 	set fileencodings=ucs-bom,utf-8,latin1
 endif
+
+" Quit insert mode
+inoremap jk			<Esc>
+vnoremap jk			<Esc>
+
+" Quit normal mode
+nnoremap <Space>q	:qa<CR>
+
+" Movement
+nnoremap H			^
+nnoremap L			$
+vnoremap H			^
+vnoremap L			$
+
+" Save file
+nnoremap <Space>sf	:w<CR>
+nnoremap <Space>sa	:wa<CR>
+
+" Search
+nnoremap <Space>ss	*
+nnoremap <Space>sc	:nohlsearch<CR>
+
+" Window
+nnoremap <Space>ww	<C-W>w
+nnoremap <Space>wd	<C-W>c
+nnoremap <Space>wh	<C-W>h
+nnoremap <Space>wj	<C-W>j
+nnoremap <Space>wk	<C-W>k
+nnoremap <Space>wl	<C-W>l
+nnoremap <Space>we	<C-W>=
+nnoremap <Space>ws	<C-W>s
+nnoremap <Space>wv	<C-W>v
+
+" Buffer
+nnoremap <Space>bf	:BufExplorer<CR>
+
+" Shifting
+vmap <tab>			>gv
+vmap <s-tab>		<gv
+
+" Pathogen
+execute pathogen#infect()
+execute pathogen#helptags()
+
+" Nerdtree
+map <C-M>			:NERDTreeToggle<CR>
+let NERDTreeShowBookmarks=1
+
+" CScope
+nmap <C-k>s			:cs find s <C-R>=expand("<cword>")<CR><CR>
+nmap <C-k>g			:cs find g <C-R>=expand("<cword>")<CR><CR>
+nmap <C-k>c			:cs find c <C-R>=expand("<cword>")<CR><CR>
+nmap <C-k>t			:cs find t <C-R>=expand("<cword>")<CR><CR>
+nmap <C-k>e			:cs find e <C-R>=expand("<cword>")<CR><CR>
+nmap <C-k>f			:cs find f <C-R>=expand("<cfile>")<CR><CR>
+nmap <C-k>i			:cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+nmap <C-k>d			:cs find d <C-R>=expand("<cword>")<CR><CR>
 
 if has("cscope")
 	set csprg=/usr/bin/cscope
@@ -38,18 +100,17 @@ if has("cscope")
 	set csverb
 endif
 
-execute pathogen#infect()
-execute pathogen#helptags()
-
-let NERDTreeShowBookmarks=1
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-let g:ctrlp_map='<C-p>'
-let g:ctrlp_cmd='CtrlP'
-
+" Powerline
 set guifont=PowerlineSymbols\ for\ Powerline
 set t_Co=256
 let g:Powerline_symbols='fancy'
 
+" Ctrlp
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+let g:ctrlp_map='<C-p>'
+let g:ctrlp_cmd='CtrlP'
+
+" Taglist
 let Tlist_Show_One_File=1
 let Tlist_Exit_OnlyWindow=1
 let Tlist_Ctags_Cmd="/usr/bin/ctags"
@@ -58,6 +119,7 @@ let Tlist_Sort_Type="name"
 let Tlist_Use_SingleClick=1
 let Tlist_WinWidth=40
 
+" Title
 function AddTitle()
 	call append(0,"/*==============================================")
 	call append(1,"#")
@@ -95,54 +157,5 @@ function TitleDet()
 	endwhile
 	call AddTitle()
 endfunction
-
-" Quit insert mode
-inoremap jj			<ESC>
-
-" Quit normal mode
-nnoremap <Space>q	:qa<CR>
-
-" Movement
-nnoremap H			^
-nnoremap L			$
-
-" Save file
-nnoremap <Space>sf	:w<CR>
-nnoremap <Space>sa	:wa<CR>
-
-" Search
-nnoremap <Space>sc	:nohlsearch<CR>
-
-" Window
-nnoremap <Space>ww	<C-W>w
-nnoremap <Space>wd	<C-W>c
-nnoremap <Space>wh	<C-W>h
-nnoremap <Space>wj	<C-W>j
-nnoremap <Space>wk	<C-W>k
-nnoremap <Space>wl	<C-W>l
-nnoremap <Space>we	<C-W>=
-nnoremap <Space>ws	<C-W>s
-nnoremap <Space>wv	<C-W>v
-
-" Buffer
-nnoremap <Space>bf	:BufExplorer<CR>
-
-" Shifting
-vmap <tab>			>gv
-vmap <s-tab>		<gv
-
-" Nerdtree
-map <C-M>			:NERDTreeToggle<CR>
-
-" CScope
-nmap <C-k>s			:cs find s <C-R>=expand("<cword>")<CR><CR>
-nmap <C-k>g			:cs find g <C-R>=expand("<cword>")<CR><CR>
-nmap <C-k>c			:cs find c <C-R>=expand("<cword>")<CR><CR>
-nmap <C-k>t			:cs find t <C-R>=expand("<cword>")<CR><CR>
-nmap <C-k>e			:cs find e <C-R>=expand("<cword>")<CR><CR>
-nmap <C-k>f			:cs find f <C-R>=expand("<cfile>")<CR><CR>
-nmap <C-k>i			:cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-nmap <C-k>d			:cs find d <C-R>=expand("<cword>")<CR><CR>
-
 
 nmap <F8>			:call TitleDet()<CR>
