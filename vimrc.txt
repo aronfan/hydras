@@ -101,12 +101,10 @@ if has("cscope")
 endif
 
 " Powerline
-set guifont=PowerlineSymbols\ for\ Powerline
 set t_Co=256
 let g:Powerline_symbols='fancy'
 
 " Ctrlp
-set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_map='<C-p>'
 let g:ctrlp_cmd='CtrlP'
 
