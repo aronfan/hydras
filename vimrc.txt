@@ -20,7 +20,7 @@ set nowritebackup
 syntax enable
 
 " Scheme
-colorscheme monokai
+colorscheme molokai
 
 " File encoding
 if has("multi_byte")
