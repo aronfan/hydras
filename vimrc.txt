@@ -32,12 +32,15 @@ if has("multi_byte")
 	set fileencodings=ucs-bom,utf-8,latin1
 endif
 
+" Leader key
+let mapleader=" "
+
 " Quit insert mode
 inoremap ff			<Esc>
 vnoremap ff			<Esc>
 
 " Quit normal mode
-nnoremap <Space>q	:qa<CR>
+nnoremap <leader>q	:qa<CR>
 
 " Movement
 nnoremap H			^
@@ -46,26 +49,26 @@ vnoremap H			^
 vnoremap L			$
 
 " Save file
-nnoremap <Space>sf	:w<CR>
-nnoremap <Space>sa	:wa<CR>
+nnoremap <leader>sf	:w<CR>
+nnoremap <leader>sa	:wa<CR>
 
 " Search
-nnoremap <Space>ss	*
-nnoremap <Space>sc	:nohlsearch<CR>
+nnoremap <leader>ss	*
+nnoremap <leader>sc	:nohlsearch<CR>
 
 " Window
-nnoremap <Space>ww	<C-W>w
-nnoremap <Space>wd	<C-W>c
-nnoremap <Space>wh	<C-W>h
-nnoremap <Space>wj	<C-W>j
-nnoremap <Space>wk	<C-W>k
-nnoremap <Space>wl	<C-W>l
-nnoremap <Space>we	<C-W>=
-nnoremap <Space>ws	<C-W>s
-nnoremap <Space>wv	<C-W>v
+nnoremap <leader>ww	<C-W>w
+nnoremap <leader>wd	<C-W>c
+nnoremap <leader>wh	<C-W>h
+nnoremap <leader>wj	<C-W>j
+nnoremap <leader>wk	<C-W>k
+nnoremap <leader>wl	<C-W>l
+nnoremap <leader>we	<C-W>=
+nnoremap <leader>ws	<C-W>s
+nnoremap <leader>wv	<C-W>v
 
 " Buffer
-nnoremap <Space>bf	:BufExplorer<CR>
+nnoremap <leader>bf	:BufExplorer<CR>
 
 " Shifting
 vmap <tab>			>gv
