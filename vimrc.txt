@@ -71,6 +71,8 @@ nnoremap <leader>wv	<C-W>v
 nnoremap <leader>bf	:BufExplorer<CR>
 
 " Shifting
+nmap <tab>			V>
+nmap <s-tab>		V<
 vmap <tab>			>gv
 vmap <s-tab>		<gv
 
