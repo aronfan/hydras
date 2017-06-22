@@ -14,4 +14,6 @@
 12) :%s/\s\+$//  means remove the spaces at the end of some lines
 13) C-z to suspend the vim, and 'gf' to come back
 14) C-u to delete the last change
+15) :r !command 将command的输出作为输入写入vim当前光标位置处
+16) :n,mw !command 将n到m行的内容作为输入传给command
 
