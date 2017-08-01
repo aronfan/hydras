@@ -162,3 +162,9 @@ function TitleDet()
 endfunction
 
 nmap <F8>			:call TitleDet()<CR>
+
+" Make
+set makeprg=./make.sh
+map <Leader>cc		:make<CR>:cw<CR>
+map <Leader>go		:GoRun %<CR>
+
