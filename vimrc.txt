@@ -16,6 +16,8 @@ set laststatus=2
 set showcmd
 set nobackup
 set nowritebackup
+set cursorline
+set cursorcolumn
 
 syntax enable
 
