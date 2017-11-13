@@ -1,5 +1,5 @@
 
-" File Encoding
+" 文件编码
 if has("multi_byte")
     if &termencoding == ""
         let &termencoding = &encoding
@@ -79,7 +79,7 @@ set nocompatible
 " vim 自身命令行模式智能补全
 set wildmenu
 
-" Backspace
+" 退格键兼容
 set backspace=2
 
 " <<
@@ -98,7 +98,6 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'derekwyatt/vim-fswitch'
 Plugin 'derekwyatt/vim-protodef'
 Plugin 'dyng/ctrlsf.vim'
-Plugin 'fholgado/minibufexpl.vim'
 Plugin 'gcmt/wildfire.vim'
 Plugin 'kshenoy/vim-signature'
 Plugin 'Lokaltog/vim-easymotion'
@@ -107,11 +106,11 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'majutsushi/tagbar'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'SirVer/ultisnips'
 Plugin 'scrooloose/nerdtree'
 Plugin 'sjl/gundo.vim'
 Plugin 'skywind3000/asyncrun.vim'
 Plugin 'suan/vim-instant-markdown'
+Plugin 'SirVer/ultisnips'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tomasr/molokai'
 Plugin 'vim-scripts/BOOKMARKS--Mark-and-Highlight-Full-Lines'
@@ -189,6 +188,21 @@ set nowrap
 
 " 设置状态栏主题风格
 let g:airline_theme='molokai'
+let g:airline#extensions#tabline#enabled=1
+let g:airline#extensions#tabline#buffer_nr_show=1
+let g:airline#extensions#whitespace#enabled=1
+let g:airline#extensions#whitespace#symbol='!'
+let g:airline_powerline_fonts=0
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_left_sep=''
+let g:airline_left_alt_sep=''
+let g:airline_right_sep=''
+let g:airline_right_alt_sep=''
+let g:airline_symbols.branch=''
+let g:airline_symbols.readonly=''
+let g:airline_symbols.linenr=''
 
 " <<
 
@@ -523,7 +537,7 @@ let g:wildfire_objects = ["i'", 'i"', "i)", "i]", "i}", "i>", "ip"]
 " 调用 gundo 树
 nnoremap <Leader>ud :GundoToggle<CR>
 
-" Make
+" 编译支持
 set makeprg=./make.sh
 map <Leader>cp :make<CR>:cw<CR>
 
