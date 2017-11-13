@@ -1,12 +1,12 @@
 
 " File Encoding
 if has("multi_byte")
-	if &termencoding == ""
-		let &termencoding = &encoding
-	endif
-	set encoding=utf-8
-	setglobal fileencoding=utf-8
-	set fileencodings=ucs-bom,utf-8,latin1
+    if &termencoding == ""
+        let &termencoding = &encoding
+    endif
+    set encoding=utf-8
+    setglobal fileencoding=utf-8
+    set fileencodings=ucs-bom,utf-8,latin1
 endif
 
 " 定义快捷键的前缀，即 <Leader>
@@ -102,16 +102,18 @@ Plugin 'fholgado/minibufexpl.vim'
 Plugin 'gcmt/wildfire.vim'
 Plugin 'kshenoy/vim-signature'
 Plugin 'Lokaltog/vim-easymotion'
-Plugin 'Lokaltog/vim-powerline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'majutsushi/tagbar'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'SirVer/ultisnips'
 Plugin 'scrooloose/nerdtree'
 Plugin 'sjl/gundo.vim'
+Plugin 'skywind3000/asyncrun.vim'
 Plugin 'suan/vim-instant-markdown'
-Plugin 'sickill/vim-monokai'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'tomasr/molokai'
 Plugin 'vim-scripts/BOOKMARKS--Mark-and-Highlight-Full-Lines'
 Plugin 'vim-scripts/indexer.tar.gz'
 Plugin 'vim-scripts/DfrankUtil'
@@ -126,7 +128,7 @@ filetype plugin indent on
 
 " 配色方案
 set background=dark
-colorscheme monokai
+colorscheme molokai
 
 " >>
 " 营造专注气氛
@@ -186,7 +188,7 @@ set guifont=YaHei\ Consolas\ Hybrid\ 10.5
 set nowrap
 
 " 设置状态栏主题风格
-let g:Powerline_colorscheme='solarized256'
+let g:airline_theme='molokai'
 
 " <<
 
