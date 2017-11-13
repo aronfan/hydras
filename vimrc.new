@@ -194,7 +194,7 @@ let g:airline#extensions#whitespace#enabled=1
 let g:airline#extensions#whitespace#symbol='!'
 let g:airline_powerline_fonts=0
 if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
+    let g:airline_symbols={}
 endif
 let g:airline_left_sep=''
 let g:airline_left_alt_sep=''
@@ -255,7 +255,7 @@ nmap <silent> <Leader>sw :FSHere<CR>
 " 代码收藏
 
 " 自定义 vim-signature 快捷键
-let g:SignatureMap = {
+let g:SignatureMap={
         \ 'Leader'             :  "m",
         \ 'PlaceNextMark'      :  "m,",
         \ 'ToggleMarkAtLine'   :  "m.",
@@ -293,7 +293,7 @@ let tagbar_width=32
 " tagbar 子窗口中不显示冗余帮助信息
 let g:tagbar_compact=1
 " 设置 ctags 对哪些代码标识符生成标签
-let g:tagbar_type_cpp = {
+let g:tagbar_type_cpp={
      \ 'ctagstype' : 'c++',
      \ 'kinds'     : [
          \ 'c:classes:0:1',
@@ -489,11 +489,11 @@ let NERDTreeAutoDeleteBuffer=1
 " 多文档编辑
  
 " 显示/隐藏 MiniBufExplorer 窗口
-map <Leader>bl :MBEToggle<CR>
+"map <Leader>bl :MBEToggle<CR>
 
 " buffer 切换快捷键
-nmap <Leader>bn :MBEbn<CR>
-nmap <Leader>bp :MBEbp<CR>
+"nmap <Leader>bn :MBEbn<CR>
+"nmap <Leader>bp :MBEbp<CR>
 
 " <<
 
@@ -530,7 +530,7 @@ nmap <Leader>g :wa<CR>:cd build/<CR>:!rm -rf main<CR>:!cmake CMakeLists.txt<CR>:
 "vmap <S-SPACE> <Plug>(wildfire-water)
 
 " 适用于哪些结对符
-let g:wildfire_objects = ["i'", 'i"', "i)", "i]", "i}", "i>", "ip"]
+let g:wildfire_objects=["i'", 'i"', "i)", "i]", "i}", "i>", "ip"]
 
 " <<
 
