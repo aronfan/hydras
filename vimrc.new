@@ -99,6 +99,7 @@ Plugin 'derekwyatt/vim-fswitch'
 Plugin 'derekwyatt/vim-protodef'
 Plugin 'dyng/ctrlsf.vim'
 Plugin 'gcmt/wildfire.vim'
+Plugin 'jlanzarotta/bufexplorer'
 Plugin 'kshenoy/vim-signature'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'vim-airline/vim-airline'
@@ -488,12 +489,7 @@ let NERDTreeAutoDeleteBuffer=1
 " >>
 " 多文档编辑
  
-" 显示/隐藏 MiniBufExplorer 窗口
-"map <Leader>bl :MBEToggle<CR>
-
-" buffer 切换快捷键
-"nmap <Leader>bn :MBEbn<CR>
-"nmap <Leader>bp :MBEbp<CR>
+nnoremap <leader>bf :BufExplorer<CR> 
 
 " <<
 
