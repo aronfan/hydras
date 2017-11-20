@@ -183,7 +183,7 @@ set hlsearch
 " 其他美化
 
 " 设置 gvim 显示字体
-"set guifont=YaHei\ Consolas\ Hybrid\ 10.5
+set guifont=YaHei\ Consolas\ Hybrid\ 10.5
 
 " 禁止折行
 set nowrap
@@ -518,15 +518,15 @@ map <Leader>rs :source my.vim<CR>
 " <<
  
 " 设置快捷键实现一键编译及运行
-nmap <Leader>m :wa<CR>:cd build/<CR>:!rm -rf main<CR>:!cmake CMakeLists.txt<CR>:make<CR><CR>:cw<CR>:cd ..<CR>
-nmap <Leader>g :wa<CR>:cd build/<CR>:!rm -rf main<CR>:!cmake CMakeLists.txt<CR>:make<CR><CR>:cw<CR>:cd ..<CR>:!build/main<CR>
+"nmap <Leader>m :wa<CR>:cd build/<CR>:!rm -rf main<CR>:!cmake CMakeLists.txt<CR>:make<CR><CR>:cw<CR>:cd ..<CR>
+"nmap <Leader>g :wa<CR>:cd build/<CR>:!rm -rf main<CR>:!cmake CMakeLists.txt<CR>:make<CR><CR>:cw<CR>:cd ..<CR>:!build/main<CR>
 
 " >>
 " 快速选中结对符内的文本
  
 " 快捷键
-"map <SPACE> <Plug>(wildfire-fuel)
-"vmap <S-SPACE> <Plug>(wildfire-water)
+map <Leader>ss <Plug>(wildfire-fuel)
+vmap <Leader>ss <Plug>(wildfire-water)
 
 " 适用于哪些结对符
 let g:wildfire_objects=["i'", 'i"', "i)", "i]", "i}", "i>", "ip"]
@@ -538,5 +538,5 @@ nnoremap <Leader>ud :GundoToggle<CR>
 
 " 编译支持
 set makeprg=./make.sh
-map <Leader>cp :make<CR>:cw<CR>
+map <Leader>cp :wa<CR>:make<CR><CR>:cw<CR>
 
