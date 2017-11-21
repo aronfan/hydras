@@ -183,7 +183,7 @@ set hlsearch
 " 其他美化
 
 " 设置 gvim 显示字体
-"set guifont=YaHei\ Consolas\ Hybrid\ 10.5
+set guifont=YaHei\ Consolas\ Hybrid\ 10.5
 
 " 禁止折行
 set nowrap
@@ -506,6 +506,10 @@ set sessionoptions="blank,globals,localoptions,tabpages,sesdir,folds,help,option
 " 保存 undo 历史。必须先行创建 .undo_history/
 set undodir=~/.undo_history/
 set undofile
+let g:gundo_right=1
+
+" 调用 gundo 树
+nnoremap <Leader>ud :GundoToggle<CR>
 
 " 保存快捷键
 "map <Leader>ss :mksession! my.vim<CR> :wviminfo! my.viminfo<CR>
@@ -518,25 +522,22 @@ map <Leader>rs :source my.vim<CR>
 " <<
  
 " 设置快捷键实现一键编译及运行
-nmap <Leader>m :wa<CR>:cd build/<CR>:!rm -rf main<CR>:!cmake CMakeLists.txt<CR>:make<CR><CR>:cw<CR>:cd ..<CR>
-nmap <Leader>g :wa<CR>:cd build/<CR>:!rm -rf main<CR>:!cmake CMakeLists.txt<CR>:make<CR><CR>:cw<CR>:cd ..<CR>:!build/main<CR>
+"nmap <Leader>m :wa<CR>:cd build/<CR>:!rm -rf main<CR>:!cmake CMakeLists.txt<CR>:make<CR><CR>:cw<CR>:cd ..<CR>
+"nmap <Leader>g :wa<CR>:cd build/<CR>:!rm -rf main<CR>:!cmake CMakeLists.txt<CR>:make<CR><CR>:cw<CR>:cd ..<CR>:!build/main<CR>
 
 " >>
 " 快速选中结对符内的文本
  
 " 快捷键
-"map <SPACE> <Plug>(wildfire-fuel)
-"vmap <S-SPACE> <Plug>(wildfire-water)
+map <Leader>is <Plug>(wildfire-fuel)
+vmap <Leader>is <Plug>(wildfire-water)
 
 " 适用于哪些结对符
 let g:wildfire_objects=["i'", 'i"', "i)", "i]", "i}", "i>", "ip"]
 
 " <<
 
-" 调用 gundo 树
-nnoremap <Leader>ud :GundoToggle<CR>
-
 " 编译支持
 set makeprg=./make.sh
-map <Leader>cp :make<CR>:cw<CR>
+map <Leader>cp :wa<CR>:make<CR><CR>:cw<CR>
 
