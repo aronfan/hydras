@@ -1,17 +1,12 @@
 
-" Quit insert mode
-inoremap ff         <Esc>
-vnoremap ff         <Esc>
-
 " Quit normal mode
-nnoremap <Space>q  :qa<CR>
+nnoremap <Space>q   :qa<CR>
 
 " Save file
-nnoremap <Space>sf :w<CR>
-nnoremap <Space>sa :wa<CR>
+nnoremap <Space>w   :w<CR>
+nnoremap <Space>W   :wa<CR>
 
 " Search
-nnoremap <Space>ss *
 nnoremap <Space>sc :nohlsearch<CR>
 
 " Window

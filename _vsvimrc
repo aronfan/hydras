@@ -2,19 +2,14 @@
 " Leader key
 let mapleader=" "
 
-" Quit insert mode
-inoremap ff         <Esc>
-vnoremap ff         <Esc>
-
 " Quit normal mode
 nnoremap <leader>q  :qa<CR>
 
 " Save file
-nnoremap <leader>sf :w<CR>
-nnoremap <leader>sa :wa<CR>
+nnoremap <leader>w  :w<CR>
+nnoremap <leader>W  :wa<CR>
 
 " Search
-nnoremap <leader>ss *
 nnoremap <leader>sc :nohlsearch<CR>
 
 " Window
