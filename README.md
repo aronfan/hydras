@@ -1,3 +1,3 @@
 # hydras
-some config 
+vim config for devel
 
