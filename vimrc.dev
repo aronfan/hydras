@@ -539,5 +539,5 @@ let g:wildfire_objects=["i'", 'i"', "i)", "i]", "i}", "i>", "ip"]
 
 " 编译支持
 set makeprg=./make.sh
-map <Leader>cp :wa<CR>:make<CR><CR>:cw<CR>
-
+map <Leader>cp :AsyncRun ./make.sh<CR>
+map <Leader>cr :AsyncRun ./make.sh rebuild<CR>
