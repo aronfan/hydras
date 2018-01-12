@@ -349,7 +349,7 @@ nmap <Leader>tp :tprevious<CR>
 " 基于语义的代码导航
 nnoremap <Leader>jc :YcmCompleter GoToDeclaration<CR>
 " 只能是 #include 或已打开的文件
-nnoremap <Leader>jd :YcmCompleter GoToDefinition<CR>
+nnoremap <Leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " <<
 
