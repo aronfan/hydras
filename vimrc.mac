@@ -525,4 +525,6 @@ let g:wildfire_objects=["i'", 'i"', "i)", "i]", "i}", "i>", "ip"]
 set makeprg=./make.sh
 map <Leader>cp :AsyncRun ./make.sh<CR>
 map <Leader>cr :AsyncRun ./make.sh rebuild<CR>
+map <Leader>gb :GoBuild<CR>
+map <Leader>gf :GoFmt<CR>
 
