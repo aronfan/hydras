@@ -490,7 +490,7 @@ let NERDTreeAutoDeleteBuffer=1
 " >>
 " 多文档编辑
  
-nnoremap <leader>bf :BufExplorer<CR> 
+nnoremap <Leader>bf :BufExplorer<CR> 
 
 " <<
 
@@ -529,3 +529,6 @@ map <Leader>cr :AsyncRun ./make.sh rebuild<CR>
 map <Leader>gb :GoBuild<CR>
 map <Leader>gf :GoFmt<CR>
 
+" DIFF支持
+map <Leader>dn ]c
+map <Leader>dp [c
