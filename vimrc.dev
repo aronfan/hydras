@@ -122,6 +122,7 @@ Plugin 'vim-scripts/indexer.tar.gz'
 Plugin 'vim-scripts/DfrankUtil'
 Plugin 'vim-scripts/DrawIt'
 Plugin 'vim-scripts/vimprj'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'Valloric/YouCompleteMe'
 
 " 插件列表结束
