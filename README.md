@@ -1,4 +1,4 @@
-# hydras
+# vim configuration
 
 ```
 cd ~/.vim
