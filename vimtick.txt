@@ -1,6 +1,0 @@
-
-1) /\<the\> just search word 'the', not 'there' or smoothe'
-2) :%s/\s\+$//  means remove the spaces at the end of some lines
-3) :r !command 将command的输出作为输入写入vim当前光标位置处
-4) :n,mw !command 将n到m行的内容作为输入传给command
-

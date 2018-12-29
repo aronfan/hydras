@@ -100,7 +100,6 @@ Plugin 'derekwyatt/vim-protodef'
 Plugin 'dyng/ctrlsf.vim'
 Plugin 'fatih/vim-go'
 Plugin 'gcmt/wildfire.vim'
-Plugin 'jimenezrick/vimerl'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'kshenoy/vim-signature'
 Plugin 'Lokaltog/vim-easymotion'
@@ -131,7 +130,7 @@ filetype plugin indent on
 " <<<<
 
 " 配色方案
-"set background=dark
+set background=dark
 colorscheme molokai
 
 " >>
