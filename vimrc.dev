@@ -113,6 +113,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'tomasr/molokai'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-repeat'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'Valloric/YouCompleteMe'
 
@@ -441,3 +442,5 @@ map <Leader>dn ]c
 map <Leader>dp [c
 map <Leader>dv :GitGutterPreviewHunk<CR>
 let g:gitgutter_highlight_lines=1
+
+map <Leader>ch :nohl<CR>
