@@ -439,4 +439,4 @@ map <Leader>gf :GoFmt<CR>
 set updatetime=100
 map <Leader>dn ]c
 map <Leader>dp [c
-
+let g:gitgutter_highlight_lines=1
