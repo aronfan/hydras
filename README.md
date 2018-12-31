@@ -2,8 +2,10 @@
 
 Install Vundle
 ```
-cd ~/.vim
-mkdir bundle
+cd ~
+mkdir -p .vim
+cd .vim
+mkdir -p bundle
 cd bundle
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ```
