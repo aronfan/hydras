@@ -10,4 +10,6 @@ vim
 :qa
 cd ~/.vim/bundle/YouCompleteMe
 ./install.py --clang-completer --go-completer
+cd ~
+echo "source ~/vimrc/vimrc.dev" > .vimrc
 ```
