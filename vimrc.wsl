@@ -61,10 +61,6 @@ set wildmenu
 " 退格键兼容
 set backspace=2
 
-" 配色方案
-"set background=dark
-"colorscheme molokai
-
 " 禁止显示滚动条
 set guioptions-=l
 set guioptions-=L
@@ -110,7 +106,6 @@ set tabstop=4
 set shiftwidth=4
 " 让 vim 把连续数量的空格视为一个制表符
 set softtabstop=4
-
 " 基于缩进或语法进行代码折叠
 set foldmethod=syntax
 " 启动 vim 时关闭折叠代码
@@ -124,10 +119,6 @@ nmap <Leader>man :Man 3 <cword><CR>
 
 " vim-addon-manager
 "
-" 基于语义的代码导航
-"nnoremap <Leader>jc :YcmCompleter GoToDeclaration<CR>
-" 只能是 #include 或已打开的文件
-"nnoremap <Leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 let g:ycm_global_ycm_extra_conf='/usr/lib/ycmd/ycm_extra_conf.py'
 
 " Vundle
