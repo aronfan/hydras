@@ -128,11 +128,13 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'airblade/vim-gitgutter'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'fatih/vim-go'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tomasr/molokai'
+Plugin 'tpope/vim-fugitive'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
@@ -185,3 +187,9 @@ let g:go_jump_to_error=1
 let g:go_fmt_autosave=1
 let g:go_fmt_command="goimports"
 
+" Git diff支持 vim-gitgutter
+set updatetime=100
+map <Leader>dn ]c
+map <Leader>dp [c
+map <Leader>dv :GitGutterPreviewHunk<CR>
+let g:gitgutter_highlight_lines=1
