@@ -29,3 +29,10 @@ Compile the YCM
 cd ~/.vim/bundle/YouCompleteMe
 ./install.py --clang-completer --go-completer
 ```
+
+Install the YCM on ubuntu
+```
+sudo apt-get install vim-addon-manager
+sudo apt-get install vim-youcompleteme
+vim-addons install youcompleteme
+```
