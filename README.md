@@ -36,3 +36,13 @@ sudo apt-get install vim-addon-manager
 sudo apt-get install vim-youcompleteme
 vim-addons install youcompleteme
 ```
+
+Color
+```~/.bashrc
+[[ $TMUX = "" ]] && export TERM="xterm-256color"
+```
+
+```~/.tmux.conf
+set -g default-terminal "screen-256color"
+```
+
