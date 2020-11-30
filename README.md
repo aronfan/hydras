@@ -13,15 +13,16 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 Install vimrc
 ```
 cd ~
+mkdir -p deps
+cd deps
 git clone https://github.com/aronfan/vimrc.git vimrc
-echo "source ~/vimrc/vimrc.dev" > .vimrc
+echo "source ~/deps/vimrc/ubuntu.go.conf" > .vimrc
 ```
 
 Install other plugins
 ```
 vim
 :PluginInstall
-:qa
 ```
 
 Compile the YCM
@@ -30,7 +31,7 @@ cd ~/.vim/bundle/YouCompleteMe
 ./install.py --clang-completer --go-completer
 ```
 
-Install the YCM on ubuntu
+Install the YCM on Ubuntu
 ```
 sudo apt-get install vim-addon-manager
 sudo apt-get install vim-youcompleteme
