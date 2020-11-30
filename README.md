@@ -38,11 +38,13 @@ vim-addons install youcompleteme
 ```
 
 Color
-```~/.bashrc
+```
+vim ~/.bashrc
 [[ $TMUX = "" ]] && export TERM="xterm-256color"
 ```
 
-```~/.tmux.conf
+```
+vim ~/.tmux.conf
 set -g default-terminal "screen-256color"
 ```
 
